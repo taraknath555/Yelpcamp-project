@@ -6,8 +6,7 @@ var bodyParser=require("body-parser"),
     flash=require("connect-flash"),
     ejs=require("ejs"),
     User=require("./models/users"),
-    methodOverride=require("method-override"),
-    seedDB=require("./seed.js")
+    methodOverride=require("method-override")
     
 var campgroundRoute=require("./routes/campground");
 var commentRoute=require("./routes/comment");
@@ -39,8 +38,9 @@ app.use("/campgrounds", campgroundRoute);
 app.use("/campgrounds/:id/comment", commentRoute);
 app.use("/user", userRoute);
 app.use("/", indexRoute);
-
-mongoose.connect("mongodb://localhost/Yelp_camp");
+console.log(process.env.DATABASEURL)
+// mongoose.connect("mongodb://localhost/Yelp_camp");
+mongoose.connect("mongodb://tarak:bikash123@ds119692.mlab.com:19692/yelpcamp")
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 passport.use(new localStratagy(User.authenticate()));
