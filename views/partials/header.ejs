@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yelpcamp</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <!--<div class="container">-->
+            <a class="navbar-brand" href="/campgrounds">Yelpcamp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <%if(!currentUser){%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register"><i class="fas fa-user-plus"></i>Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                    <% } else{ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/<%=currentUser.id%>"><%=currentUser.username%></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                        </li>
+                   <% }%>
+                </ul>
+            </div>
+        <!--</div>-->
+    </nav>
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger my-2 py-2" role="alert">
+                <span><%=error%></span>
+            </div>
+        <% } %>
+        
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success my-2 py-2" role="alert">
+                <span><%=success%></span>
+            </div>
+        <% } %>
+    </div>
+    
+    

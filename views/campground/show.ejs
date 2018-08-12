@@ -1,0 +1,56 @@
+<%include ../partials/header%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mt-3">
+            <div class="list-group">
+                <a class="list-group-item active" href=#>Info1</a>
+                <a class="list-group-item" href="#">Info2</a>
+                <a class="list-group-item" href="#">Info3</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="img-thumbnail">
+                <img class="img-responsive" src="<%=campground.image%>">
+                <div class="details">
+                    <span>$<%=campground.price%>/night</span>
+                    <h5><a href="#"><%=campground.title%></a></h5>
+                    <p><%=campground.discription%></p>
+                    <i>Created by <a href="/user/<%=campground.user.id%>"><%=campground.user.username%></a></i>
+                    <% if(currentUser && campground.user.id.equals(currentUser._id)){ %>
+                        <div>
+                            <a class="btn btn-sm btn-warning update-delete-btn" href="/campgrounds/<%=campground.id%>/edit">Edit</a>
+                            <form action="campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm btn-danger update-delete-btn">Delete</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-head text-right">
+                        <a class="btn btn-sm btn-success" href="/campgrounds/<%=campground._id%>/comment/new">Add Comment<a>
+                    </div>
+                       <div class="caption">
+                            <% campground.comments.forEach(function(eachComment){ %>
+                                <div>
+                                    <strong><a href="/user/<%=eachComment.user.id%>"><%=eachComment.user.username%></a></strong>
+                                    <span><%=eachComment.created.getDate()%>/<%=eachComment.created.getMonth()+1%>/<%=eachComment.created.getFullYear()%></span>
+                                    <p><%=eachComment.content%></p>
+                                    <% if(currentUser && eachComment.user.id.equals(currentUser._id)){ %>
+                                        <a class="btn btn-sm btn-warning update-delete-btn text-white" href="/campgrounds/<%=campground._id%>/comment/<%=eachComment._id%>/edit">Edit</a>
+                                        <form action="/campgrounds/<%=campground._id%>/comment/<%=eachComment._id%>?_method=DELETE" method="POST">
+                                            <button class="btn btn-danger btn-sm update-delete-btn">Delete</button> 
+                                        </form>
+                                    <% } %>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%include ../partials/footer%>

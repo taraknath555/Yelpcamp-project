@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12" id="user">
+                <h2 id="username">welcome to <%=user.username%> profile!</h2>
+                <div>
+                    <div id="profileHeader">
+                        <% if(user.profilepic){%>
+                            <p><img src="<%=user.profilepic%>" alt="profile picture"></p>
+                        <% }else{%>
+                            <p><img src="https://brazil.vfsevisa.com/Brazil-ImageEditor/Images/ImageEmpty.jpg" alt="profile picture"></p>
+                        <% } %>
+                        <h2><%=user.firstname%>  <%=user.lastname%></h2>
+                        <hr>
+                    </div>
+                    <div id="profileInfo">
+                        <table class="table">
+                            <tr>
+                                <td><strong>About </strong><p><%=user.aboutyou%></p></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gender </strong><span><%=user.gender%></span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Email </strong><span><a href="#"><%=user.email%></a></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% include ../partials/footer %>

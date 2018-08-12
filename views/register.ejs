@@ -1,0 +1,93 @@
+<% include ./partials/header %>
+<div>
+    <h3>Sign Up as new user</h3>
+    <div class="col-lg-6 col-sm-8 mx-auto mt-10" id="registration-form">
+        <form action="/register" method="POST">
+            <div id="register">
+                <div class="form-group row">
+                    <label for="username" class="col-sm-3 col-form-label">Username</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="username" type="text" name="user[username]" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="profilepic" class="col-sm-3 col-form-label">Profilepic</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="profilepic" type="text" name="user[profilepic]" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="firstname" class="col-sm-3 col-form-label">First name</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="firstname" type="text" name="user[firstname]" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lastname" class="col-sm-3 col-form-label">last name</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="lastname" type="text" name="user[lastname]" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-3 col-form-label">password</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="password" type="password" name="password" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-3 col-form-label">email</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" id="email" type="email" name="user[email]" >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="aboutyou" class="col-sm-3 col-form-label">About You</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="aboutyou" name=user[aboutyou]></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="gender" class="col-sm-3">Gender</label>
+                <div class="col-sm-9" id="gender">
+                    <input for="male" type="radio" name="user[gender]" value="Male">
+                    <label id="male">Male</label>
+                    <input for="female" type="radio" name="user[gender]" value="Female">
+                    <label id="female">Female</label>
+                    <input for="other" type="radio" name="user[gender]" value="Other">
+                    <label id="other">Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input id="terms" type="checkbox" name="user[terms]" required>
+                <label for="terms">I agree to the terms and conditions</label>
+            </div>
+            <button class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+</div>
+<% include ./partials/footer %>
+
+
+
+
+
+
+
+
+
+<!--<div>-->
+<!--    <h3 class="text-center mt-5 mb-2">Login</h3>-->
+<!--    <div class="col-lg-4 col-md-5 col-sm-7 mx-auto mt-10">-->
+<!--        <form action="/login" method="POST">-->
+<!--            <div class="form-group">-->
+<!--                <input class="form-control" type="text" name="username" placeholder="Username" required>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <input class="form-control" type="password" name="password" placeholder="Password" required>-->
+<!--            </div>-->
+<!--            <button class="btn btn-primary btn-block" type="submit">Login</button>-->
+<!--        </form>-->
+<!--        <p id="signuplink">New to YelpCamp <a href="/register">Sign Up</a></p>-->
+<!--    </div>-->
+<!--</div>-->
