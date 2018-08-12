@@ -38,14 +38,13 @@ app.use("/campgrounds", campgroundRoute);
 app.use("/campgrounds/:id/comment", commentRoute);
 app.use("/user", userRoute);
 app.use("/", indexRoute);
-console.log(process.env.DATABASEURL)
-// mongoose.connect("mongodb://localhost/Yelp_camp");
-mongoose.connect("mongodb://tarak:bikash123@ds119692.mlab.com:19692/yelpcamp")
+
+var url=process.env.DATABASEURL || "mongodb://localhost/Yelp_camp"
+mongoose.connect(url)
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 passport.use(new localStratagy(User.authenticate()));
 
-// seedDB();
 
 //starts Yelpcamp server
 app.listen(process.env.PORT,process.env.IP,function(req,res){

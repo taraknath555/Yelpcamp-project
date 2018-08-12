@@ -22,7 +22,6 @@ router.get("/new",middleware.isLoggedIn,function(req,res){
 
 //add new campground to the database
 router.post("/",middleware.isLoggedIn,function(req,res){
-    console.log(req.body.campground)
     Campground.create(req.body.campground,function(err,campground){
         if(err){
             req.flash("error",err.message)
