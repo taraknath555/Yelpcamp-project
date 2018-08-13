@@ -38,8 +38,9 @@ app.use("/campgrounds", campgroundRoute);
 app.use("/campgrounds/:id/comment", commentRoute);
 app.use("/user", userRoute);
 app.use("/", indexRoute);
+mongodb://bikash:bikash123@ds119692.mlab.com:19692/yelpcamp
 
-var url=process.env.DATABASEURL || "mongodb://localhost/Yelp_camp"
+var url=process.env.DBURL || "mongodb://localhost/Yelp_camp"
 mongoose.connect(url)
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
