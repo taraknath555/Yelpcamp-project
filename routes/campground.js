@@ -67,7 +67,6 @@ router.put("/:id",middleware.checkCampgroundOwnership,function(req,res){
             req.flash("error",err.message)
             res.redirect("/campgrounds/"+req.params.id)
         }else{
-            console.log(req.body.campground)
             req.flash("success","Campground "+foundCampground.title+ " successfully is updated!")
             res.redirect("/campgrounds/"+req.params.id)
         }

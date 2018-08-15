@@ -42,10 +42,9 @@ router.post("/login",passport.authenticate("local",{
     successRedirect:"/loginSuccess",
     failureRedirect:"/loginFailed"
 }),function(req,res){
-   console.log(req.body.username) 
+    
 })
 router.get("/loginSuccess",function(req,res){
-    console.log(req.body.username)
     req.flash("success","Welcome back to the Yelpcamp " + req.user.username)
     res.redirect("/campgrounds")
 });
